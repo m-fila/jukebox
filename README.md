@@ -56,8 +56,8 @@ SSL isn't supported yet!!
 ## License
 Distributed under the GPL-3.0. See `LICENSE` for more information.
 ## Resources
-* [cherrypy](https://cherrypy.org/) framework
-* [genshi](https://genshi.edgewall.org/) templating
-* [mini.css](https://minicss.org/) css
-* [fontawesome4](https://fontawesome.com/v4.7.0/icons/) icons
-* [icons8](https://icons8.com/icons/) favicon
+* [cherrypy](https://cherrypy.org/) - framework
+* [genshi](https://genshi.edgewall.org/) - templating
+* [mini.css](https://minicss.org/) - css
+* [fontawesome4](https://fontawesome.com/v4.7.0/icons/) - icons
+* [icons8](https://icons8.com/icons/) - favicon
