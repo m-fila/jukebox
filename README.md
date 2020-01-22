@@ -3,7 +3,7 @@ python youtube player with web interface
 ## About
 Tired of hanging on jack, drained by streaming bluetooth, infuriated by no playing in background? Stoppping audio and ads. Here's jukebox: grab some speakers/sound system, connect them to your computer/phone and run jukebox on it, control what you are listening to from minimalistic web interface. 
 ## Getting started
-Jukebox uses `youtube-dl` and `pafy` for communication with YouToube. The web interface is run with `cherrypy` and `genshi`. The playback is realized using music daemon player (`mpd`) and it's python client `python-mpd2.` The python dependencies are:
+Jukebox uses `youtube-dl` and `pafy` for communication with YouToube. The web interface is run with `cherrypy` and `genshi`. The playback is realized using music player daemon (`mpd`) and it's python client `python-mpd2.` The python dependencies are:
 ```
 pip install cherrypy Genshi python-mpd2 youtube_dl pafy
 ```
