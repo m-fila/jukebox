@@ -1,7 +1,12 @@
-# Jukebox
+# Jukebox ![Alt text](app/static/subwoofer.png "jukebox")
 python youtube player with web interface
 ## About
 Tired of hanging on jack, drained by streaming bluetooth, infuriated by no playing in background? Stoppping audio and loud ads?. Here's jukebox: grab some speakers/sound system, connect them to your computer/phone and run jukebox on it, control what you are listening to from minimalistic web interface. 
+
+<p align="center">
+  <img src="https://github.com/m-fila/jukebox/blob/master/docs/screen.png" alt='screenshot'>
+</p>
+
 ## Getting started
 Jukebox uses `youtube-dl` and `pafy` for communication with YouToube. The web interface is run with `cherrypy` and `genshi`. The playback is realized using music player daemon (`mpd`) and it's python client `python-mpd2.` The python dependencies are:
 ```
@@ -47,6 +52,7 @@ SSL isn't supported yet!!
 - [x] video queue
 - [x] simple parsing YouTube dash manifests
 - [x] http web interface
+- [x] mobile friendly
 - [x] control panel
 - [x] autoplay next audio
 - [ ] https web interface
