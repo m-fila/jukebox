@@ -1,0 +1,11 @@
+{
+    "port": 8080,
+    "local host": false,
+    "default host": true,
+    "custom host": "127.0.0.1",
+    "mpd host": "127.0.0.1",
+    "mpd port": 6600,
+    "ssl": false,
+    "cert": "cert.pem" ,
+    "privkey": "privkey.pem"
+}

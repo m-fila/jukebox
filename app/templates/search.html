@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/">
+
+  <head>
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/000000/subwoofer.png"/>
+    <meta charset="utf-8" />
+    <link href="static/css/mini-juke.css" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/9bf4e47419.js"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JukeBox</title>
+  </head>
+  <body class="search">
+  <div class="constainer">
+  <div class="row">
+  <div class="cols-sm-0 col-lg col-md"/>  
+  <div class="col-sm col-lg-5 col-md-5">  
+      <div class="row">
+        <div class="cols-sm col-lg col-md">  
+          <h3> Results for: ${query}</h3>
+        </div>
+        <div class="cols-sm-0 col-lg-0 col-md-0">  
+          <a class="button" href="/index">back</a>
+        </div>
+      </div>
+    <ol py:if="results">
+       <li py:for="item in results">
+         <form method="get" action="queryUrl">
+         <div class="row">
+         <py:choose test="item.kind">
+             <py:when test="'video'">
+                <div class="col-lg-0 col-sm-0 col-md-0" >
+                  <button  type="my" value="${item.kind},${item.url}" name="result"> 
+                      <img src="${item.thumbnail}" alt="Queue ${item.title}"/> 
+                  </button>
+                </div>
+                <div class="col-lg col-sm col-md">
+                   ${item.title}<br/> ${item.author}<br/> ${item.time}
+                </div>
+             </py:when>
+          
+             <py:when test="'playlist'">
+                   <div class="col-lg-0 col-sm-0 col-md-0" >
+                     <button  type="my" value="${item.kind},${item.url}" name="result"> 
+                         <img src="${item.thumbnail}" alt="Queue ${item.title}"/> 
+                         
+                     </button>
+                   </div>
+                   <div class="col-lg col-sm col-md">
+                      ${item.title}<br/> ${item.author}<br/> 
+                      <i class="fa fa-bars" aria-hidden="true"/>${item.count}
+                   </div>
+                </py:when>
+             <py:otherwise/>
+         </py:choose>
+         </div>   
+         </form>
+       </li>
+    </ol>
+
+    <div id="footer">
+      <hr/>
+      <p class="legalese">I use Arch BTW</p>
+    </div>
+  </div>
+  <div class="col-sm-0 col-lg col-md"/>
+  </div>
+  </div>
+  </body>
+</html> 

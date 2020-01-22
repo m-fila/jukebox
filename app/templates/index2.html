@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+  <head>
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/000000/subwoofer.png" />
+    <meta charset="utf-8" />
+    <link href="static/css/mini-default.css" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/9bf4e47419.js"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JukeBox</title>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script type='text/javascript'>
+      $(document).ready(function(){
+        $('#panelForm').on('submit', function(e)
+        {
+          e.preventDefault()
+        });
+        $('#panelForm button[type=submit]').on('click', function()
+        {
+          $.post('/usePanel',{value: $(this).val()});
+        });
+      });
+      setInterval( function()
+      {
+        $("#stateButton").load(location.href+" #stateButton>*","");
+        $("#current").load(location.href+" #current>*","");
+        $("#next").load(location.href+" #next>*","");    
+      },1000);     
+    </script>
+  </head>
+  <body class="index">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-0 col-lg col-md"/>
+        <div class="col-sm col-lg col-md-6">
+          <div id="current">    
+            <xi:include href="_current.html"/>    
+          </div>
+          <center>
+            <form id="panelForm">
+              <button type="submit"  value="down">
+                <i class="fa fa-volume-down" aria-hidden="true"/>
+              </button>
+              <button type="submit" value="up">
+                <i class="fa fa-volume-up" aria-hidden="true"/>
+              </button>
+              <button type="submit" value="playpause">
+                <div id="stateButton">
+                  <py:choose test="state">
+                    <py:when test="'play'">
+                      <i class="fa fa-pause" aria-hidden="true"/>
+                     </py:when> 
+                    <py:otherwise>
+                      <i class="fa fa-play" aria-hidden="true"/>
+                    </py:otherwise>
+                  </py:choose>
+                </div>
+              </button>
+              <button type="submit"  value="next">
+                <i class="fa fa-step-forward" aria-hidden="true"/>
+              </button>
+            </form>
+    
+            <form method="get" action="query">
+              <input type="text" value="" name="youtubeQuery" placeholder="Search youtube"/>
+              <button type="submit">Search</button>
+            </form>
+          </center>
+<script type='text/javascript'>
+  function removeFun(a)
+  {
+    $.post('/removeTrack',{ind: a});
+  }
+</script>  
+<script type='text/javascript'>
+
+  function nextAutoFun()
+  {
+    $.post('/nextAuto');
+  }
+    
+</script>       
+
+          <div id="next">
+
+          <xi:include href="_next.html"/>    
+          </div>
+          <div id="footer">
+            <hr/>
+            <p class="legalese">I use Arch BTW</p>
+          </div>
+        </div>
+        <div class="col-sm-0 col-lg col-md"/>    
+      </div>
+    </div>
+  </body>
+</html>

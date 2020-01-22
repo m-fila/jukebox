@@ -1,0 +1,32 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/">
+      <py:choose test="playlist">
+        <py:when test="[]">
+            <h3>
+            <py:choose test="loading">
+              <py:when test="True">
+              Loading <i class="fa fa-spinner fa-pulse  fa-fw"/>
+              </py:when>
+              <py:otherwise>
+              Idle
+              </py:otherwise>
+            </py:choose>
+            </h3>
+        </py:when>
+        <py:otherwise> 
+          <h3>Now playing:</h3>            
+          <div class="fakeForm">    
+            <div class="row">
+              <div class="col-lg-0 col-sm-0 col-md-0">
+                <img src="${playlist[0].thumbnail}" alt="Current thumbnail"/>
+              </div>
+              <div class="col-lg col-sm col-md">
+                ${playlist[0].title}<br/>
+                ${playlist[0].author}<br/>
+                ${playlist[0].time}
+              </div>
+            </div>    
+          </div>     
+        </py:otherwise>
+      </py:choose>
+</div>

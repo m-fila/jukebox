@@ -1,0 +1,43 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/">
+    <py:if test="len(playlist)>1 or len(playlist)==1 and loading">
+      <h3>
+        Next:
+        <py:if test="loading">
+          <i class="fa fa-spinner fa-pulse  fa-fw"/>
+        </py:if>
+      </h3>
+      <ol class="stripped">
+          <li py:for="idx,track in enumerate(playlist[1:],1)">
+            <div class="row">
+              <div class="col-lg col-sm col-md">
+                ${track.title} ${track.author} ${track.time}
+              </div>
+              <div class="col-lg-0 col-sm-0 col-md-0">
+                <button id="remove"  type="submit" onclick="removeFun('$idx')"> 
+                  <i class="fa fa-times" aria-hidden="true"/>
+                </button>
+              </div>
+            </div>  
+          </li>
+      </ol>
+    </py:if>
+
+    <py:if test="autoplay and not loading">
+      <h3>Autoplay:</h3>
+      <ul class="stripped">
+        <li>
+          <div class="row">
+            <div class="col-lg col-sm col-md">
+              ${autoplay.title} ${autoplay.author} ${autoplay.time}
+             </div>
+             <div class="col-lg-0 col-sm-0 col-md-0">
+                <button id="nextAuto"  type="submit" onclick="nextAutoFun()"> 
+                  <i class="fa fa-times" aria-hidden="true"/>
+                </button>
+             </div> 
+          </div>
+        </li>
+      </ul>
+    </py:if>
+</div>

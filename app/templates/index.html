@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+  <head>
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/000000/subwoofer.png" />
+    <meta charset="utf-8" />
+    <link href="static/css/mini-juke.css" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/9bf4e47419.js"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JukeBox</title>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script type='text/javascript' src="static/js/document2.js"></script>
+<!--    <script type='text/javascript' src="static/js/intervals3.js"></script>
+ -->   <script type='text/javascript' src="static/js/click.js"></script>
+  </head>
+  <body class="index">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-0 col-lg col-md"/>
+        <div class="col-sm col-lg-5 col-md-5">
+          <div id="current">    
+            <xi:include href="_current.html"/>    
+          </div>
+          <center>
+            <div class="fakeForm" id="panelForm">
+              <button type="submit"  value="down">
+                <i class="fa fa-fw fa-volume-down" aria-hidden="true"/>
+              </button>
+              <div id="volume" style="display:inline">
+                <div style="display:inline">${volume}%
+                </div>
+              </div>
+              <button type="submit" value="up">
+                <i class="fa fa-fw fa-volume-up" aria-hidden="true"/>
+              </button>
+              
+              <span class="break-sm break-md"/>
+              
+              <button type="submit"  value="beginning">
+                <i class="fa fa-fw fa-step-backward" aria-hidden="true"/>
+              </button>
+              <button type="submit" value="playpause">
+                <div id="stateButton">
+                  <py:choose test="state">
+                    <py:when test="'play'">
+                      <i class="fa fa-fw fa-pause" aria-hidden="true"/>
+                     </py:when> 
+                    <py:otherwise>
+                      <i class="fa fa-fw fa-play" aria-hidden="true"/>
+                    </py:otherwise>
+                  </py:choose>
+                </div>
+              </button>
+              <button type="submit"  value="next">
+                <i class="fa fa-fw fa-fast-forward" aria-hidden="true"/>
+              </button>
+              
+            </div>
+    
+            <form method="get" action="query">
+              <input type="text" value="" name="youtubeQuery" placeholder="Search youtube"/>
+              <button type="submit">Search</button>
+            </form>
+          </center>
+          <div id="next">
+          <xi:include href="_next.html"/>    
+          </div>
+          <div id="footer">
+            <hr/>
+            <p class="legalese">I use Arch BTW</p>
+          </div>
+        </div>
+        <div class="col-sm-0 col-lg col-md"/>    
+      </div>
+    </div>
+  </body>
+</html>
