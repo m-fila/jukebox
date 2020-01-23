@@ -29,6 +29,11 @@ On system connected to speakers or sound system run:
 python __init.py__ config.json
 ```
 to start jukebox. If sucescfull a web interface should be availible at address specified in congifuration.
+
+Due to live changes to YouTube remember to keep youtube_dl up to date:
+```
+pip install youtube_dl -U
+```
 ### Configuration
 config.json file:
 ```
