@@ -51,7 +51,7 @@ config.json file:
 ```
 SSL isn't supported yet!!
 
-### Features
+## Features
 - [x] playback videos (audio) and playlists
 - [x] browsing YouTube for videos and playlists
 - [x] video queue
@@ -63,6 +63,9 @@ SSL isn't supported yet!!
 - [ ] https web interface
 - [ ] saving sessions
 - [ ] spotify?
+## Troubleshooting
+* ```ERROR: xxxxxxxxxxx: Youtube says: Unable to extract video data```
+means you have to update youtube_dl with `pip install youtube_dl -U`,
 
 ## License
 Distributed under the GPL-3.0. See `LICENSE` for more information.
