@@ -44,9 +44,12 @@ class Root(object):
         
     def update(self):
         status=self.client.status()
-        self.volume=int(status['volume'])
         self.state=status['state']
-    
+        try:
+            self.volume=int(status['volume'])
+        except KeyError:
+            self.volume=None
+            
     @cherrypy.expose
     def index(self):
         tmpl = loader.load('index.html')
@@ -78,9 +81,11 @@ class Root(object):
     @cherrypy.expose
     def usePanel(self,value):
         if value=="up":
-            self.volUp()
+            if self.volume!=None:
+                self.volUp()
         elif value=="down":
-            self.volDown()
+            if self.volume!=None:
+                self.volDown()
         elif value=="playpause":
             self.play_pause()
         elif value=="next":
@@ -172,6 +177,7 @@ class Root(object):
                     print(e)
                 finally:                
                     self.loading=False
+    
     def playlistSub(self):
         watcher=mpd.MPDClient(use_unicode=True)
         watcher.connect(self.mhost,self.mport)
@@ -205,5 +211,8 @@ class Root(object):
             if 'player' in event:
                 self.state=status['state']
             if 'mixer' in event:
-                self.volume=int(status['volume'])
-         
+                try:
+                    self.volume=int(status['volume'])
+                except KeyError:
+                    self.volume=None         
+                    
