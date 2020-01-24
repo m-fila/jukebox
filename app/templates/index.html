@@ -23,6 +23,7 @@
           </div>
           <center>
             <div class="fakeForm" id="panelForm">
+        <py:if test="volume!=None">
               <button type="submit"  value="down">
                 <i class="fa fa-fw fa-volume-down" aria-hidden="true"/>
               </button>
@@ -35,7 +36,7 @@
               </button>
               
               <span class="break-sm break-md"/>
-              
+      </py:if>              
               <button type="submit"  value="beginning">
                 <i class="fa fa-fw fa-step-backward" aria-hidden="true"/>
               </button>
