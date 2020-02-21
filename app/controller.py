@@ -25,7 +25,7 @@ class Root(object):
 
     def __init__(self,config):
         self.client=mpd.MPDClient(use_unicode=True)
-#        pafy.set_api_key(config['APIkey'])
+        pafy.set_api_key(config['APIkey'])
         self.mhost=config['mpd host']
         self.mport=config['mpd port']
         self.client.connect(self.mhost,self.mport)
