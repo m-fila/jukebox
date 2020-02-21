@@ -7,5 +7,6 @@
     "mpd port": 6600,
     "ssl": false,
     "cert": "cert.pem" ,
-    "privkey": "privkey.pem"
+    "privkey": "privkey.pem",
+    "APIkey":""
 }
