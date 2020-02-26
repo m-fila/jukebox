@@ -48,7 +48,7 @@ config.json file:
     "ssl": false,                 enables ssl encryption for https connection
     "cert": "cert.pem" ,          path to ssl certificate
     "privkey": "privkey.pem",     path to ssl privkey
-    "APIkey":" "                  your YouTube-Data API keu goes here
+    "APIkey":" "                  your YouTube-Data API key goes here
 }
 ```
 SSL isn't supported yet!!
