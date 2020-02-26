@@ -1,7 +1,7 @@
 # Jukebox ![Alt text](app/static/subwoofer.png "jukebox")
 python youtube player with web interface
 ## About
-Tired of hanging on jack, drained by streaming bluetooth, infuriated by no playing in background? Stoppping audio and loud ads?. Here's jukebox: grab some speakers/sound system, connect them to your computer/phone and run jukebox on it, control what you are listening to from minimalistic web interface. 
+Tired of hanging on jack, drained by streaming bluetooth, infuriated by no playing in background? Stoppping audio and loud ads? Here's jukebox: grab some speakers/sound system, connect them to your computer/phone and run jukebox on it, control what you are listening to from minimalistic web interface. 
 
 <p align="center">
   <img src="https://github.com/m-fila/jukebox/blob/master/docs/screen.png" alt='screenshot'>
@@ -21,14 +21,15 @@ or
 sudo xbps-install -S mpd
 or
 ...
-```
 
+```
+Now you'll have to [generate YouTube-Data API key](https://developers.google.com/youtube/registering_an_application). At the time of writting google gives 10k free entries to each key every day (which is enough for this personal usage project). Once you have the key add in to the `config.json` file.
 ## Usage
 On system connected to speakers or sound system run:
 ```
 python __init.py__ config.json
 ```
-to start jukebox. If sucescfull a web interface should be availible at address specified in congifuration.
+to start jukebox. If successful a web interface should be availible at address specified in congifuration.
 
 Due to live changes to YouTube remember to keep youtube_dl up to date:
 ```
@@ -46,7 +47,8 @@ config.json file:
     "mpd port": 6600,             custom mpd server port (default 6600)
     "ssl": false,                 enables ssl encryption for https connection
     "cert": "cert.pem" ,          path to ssl certificate
-    "privkey": "privkey.pem"      path to ssl privkey
+    "privkey": "privkey.pem",     path to ssl privkey
+    "APIkey":" "                  your YouTube-Data API keu goes here
 }
 ```
 SSL isn't supported yet!!
